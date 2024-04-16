@@ -20,7 +20,7 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 app.use(staticServer);
 
-const port = 1337;
+const port = 1332;
 // Start server
 console.log(`Listening on http://localhost:${port}`);
 await app.listen({ port: port, signal: createExitSignal() });

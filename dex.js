@@ -20,7 +20,8 @@ const system_prompt = `
     typing: [
       'the first type of the animal. This is similar to Pokemon typing where you will give ONLY two types based on the animal's physical, environmental, and behavioral characteristics',
       'should be single entries from the list: FIRE, WATER, GRASS, FIGHTING, FLYING, POISON, GHOST, STEEL, ELECTRIC, PSYCHIC, GROUND, ROCK, BUG, ICE, DRAGON, DARK, FAIRY'
-    ]
+    ],
+    description: 'a fun, creative, and short description of the animal that is factual but makes it sound like the entry of a fictional beast in a bestiary.'
   }
 `
 
