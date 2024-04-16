@@ -1,9 +1,9 @@
 const submit = document.getElementById('submit');
 
 function uploadImage() {
-  const fileInput = document.getElementById('imageInput');
+  const fileInput = document.getElementById('image-input');
   const file = fileInput.files[0];
-
+    
   if (file) {
       const reader = new FileReader();
 
@@ -31,3 +31,7 @@ function uploadImage() {
 }
 
 submit.addEventListener('click', uploadImage);
+
+function renderDexEntry (data) {
+    const dexEntry = document.getElementById('')
+}
