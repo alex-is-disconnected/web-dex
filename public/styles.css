@@ -1,116 +1,312 @@
+@font-face {
+  font-family: 'PKMN';
+  src: url('assets/fonts/pokemon-bw.otf');
+  font-weight: 100 700; /* Example range - adjust as necessary */
+  font-style: normal;
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.1;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  --main-ui-bkg-color: rgb(250, 245, 238);
+  --ui-btn-hover: rgb(231, 223, 214);
+  --screen-edge-gap: 10px
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  font-family: 'PKMN', monospace !important;
+  font-size: 3vw;
+  text-shadow: 2px 2px 0px rgb(170, 165, 165);
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  font-size: 16px;
+  background-color: var(--main-ui-bkg-color);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+input {
+  font-family: 'PKMN', monospace !important;
 }
 
-#app {
-  width: 80vw;
-  margin: 0 auto;
-  padding: 2rem;
+button {
+  font-family: 'PKMN', monospace !important;
+}
+
+.layer {
+  width: fit-content;
+  line-height: .9;
+}
+
+.button-obj {
   text-align: center;
-  display:flex;
-  flex-direction: row;
-
-  justify-content: space-evenly;
 }
 
-#intro {
-  padding: 6px 22px;
-  margin-bottom: 10px;
-}
-canvas {
-  transition: all 2s;
+.button-obj:hover {
+  cursor: pointer;
+  background: var(--ui-btn-hover);
 }
 
-.hidden {
-  opacity: 0;
-  display: none;
-}
-
-.reveal {
-  display: block;
-  opacity: 1;
+button { 
+  cursor: pointer;
 }
 
 input[type="file"] {
   display: none;
 }
-#custom-file-upload {
+
+.custom-file-upload {
   border: 1px solid #ccc;
   display: inline-block;
   padding: 6px 12px;
   cursor: pointer;
-  transition: all 1s;
-  font-size: 11px;
 }
 
-#custom-file-upload:hover {
-  border-color: #646cff;
-
-  border-radius: 7px;
+.custom-file-upload:hover {
+  background-color: var(--ui-btn-hover);
 }
 
-#content {
+#init-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--main-ui-bkg-color);
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+#chat-modal {
+  position: absolute;
+  bottom: 40vh;
+  left: calc( 0 + var(--screen-edge-gap));
+  width: fit-content;
+  height: fit-content;
+  z-index: 10;
+  transition: all 1s ease-in-out;
+}
+
+#chat {
+  background-color: var(--main-ui-bkg-color);
+  padding: 10px;
+  height: 20vh;
+  width: calc(100vw - 32px - (var(--screen-edge-gap) * 4));
+}
+
+#chat-modal-2 {
+  position: absolute;
+  bottom: var(--screen-edge-gap);
+  left: calc( 0 + var(--screen-edge-gap));
+  width: fit-content;
+  height: fit-content;
+  z-index: 10;
+  transition: all .6s ease-in-out;
+  display: none;
+}
+
+#chat-2 {
+  background-color: var(--main-ui-bkg-color);
+  padding: 10px;
+  height: 20vh;
+  width: calc(100vw - 32px - (var(--screen-edge-gap) * 4));
+}
+
+
+#upload-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--main-ui-bkg-color);
+  width: 100vw;
+  height: 100vh;
+  z-index: 8;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#upload-btn-area {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#photo-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: var(--screen-edge-gap);
+  background-color: var(--main-ui-bkg-color);
+  width: 100vw;
+  height: 100vh;
+  z-index: 9;
+  display: none;
   flex-direction: column;
   align-items: center;
-  width: 80%;
+  gap: 40px;
 }
 
-#outputCanvas {
-  height: 90vh;
+#photo-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+#photo-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(194, 226, 146);
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  height: 100%;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(194, 226, 146);
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+#dex-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--main-ui-bkg-color);
+  width: 100vw;
+  padding: 10px;
+  z-index: 10;
+  display: none;
+  align-items: center;
+}
+
+#retry {
+  height: fit-content;
+  padding: 10px;
   cursor: pointer;
-  transition: border-color 0.25s;
 }
-button:hover {
-  border-color: #646cff;
+
+#retry:hover {
+  background-color: rgb(226, 146, 146);
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+#retry-outer {
+  align-self: start;
+}
+
+#dex-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  gap: 20px;
+
+  flex-direction: row-reverse;
+}
+
+.dex-error {
+  width: 80vw;
+  padding: 10px;
+}
+
+.dex-entry {
+  width: 85vw;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  letter-spacing: 1px;
+}
+
+
+.dex-upper {
+  display: flex;
+  line-height: .8;
+  margin: 20px;
+}
+
+.dex-upper > h2 {
+  margin: 0;
+}
+
+.desc-container > p {
+  margin: 20px;
+}
+
+.dex-image {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dex-image > figure {
+  width: 100%;
+}
+
+.dex-image > figure > img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.dex-info {
+  margin: 10px;
+}
+
+.dex-info > h2 {
+  margin: 0;
+  padding: .25em 0;
+}
+
+.typing {
+  display: flex;
+  gap: 10px;
+  padding: 20px;
+  justify-content: space-evenly;
+}
+
+.type {
+  margin: 0;
+}
+
+.type > img {
+  height: 3vw;
+  image-rendering: pixelated;
+}
+
+.physical > h2 {
+  margin: 0;
+  padding: .25em 0;
+}
+
+.environment > h2 {
+    margin: 0;
+    padding: .25em 0;
+}
+
+.dex-image {
+  width: calc(50% - 20px);
 }
 

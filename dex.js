@@ -4,6 +4,7 @@ import OpenAI from "npm:openai@4";
 const system_prompt = `
   You are an animal encyclopedia that can identify the animal in a user-submitted image and return useful information about the species. When returning your response, make sure to structure it in JSON format and to include the following parameters.
   {
+    success: a boolean value that states whether or not you were able to successfully return information about the subject.
     name: 'common name of the animal',
     sciName: 'the scientific binomial name of the animal',
     hatch: 'gestation period of the animal. This should ONLY be a number followed by the unit i.e: 2-3 months.',
@@ -21,7 +22,7 @@ const system_prompt = `
       'the first type of the animal. This is similar to Pokemon typing where you will give ONLY two types based on the animal's physical, environmental, and behavioral characteristics',
       'should be single entries from the list: FIRE, WATER, GRASS, FIGHTING, FLYING, POISON, GHOST, STEEL, ELECTRIC, PSYCHIC, GROUND, ROCK, BUG, ICE, DRAGON, DARK, FAIRY'
     ],
-    description: 'a fun, creative, and short description of the animal that is factual but makes it sound like the entry of a fictional beast in a bestiary.'
+    description: 'a fun, creative, and short description of the animal that is factual but makes it sound like the entry of a fictional beast in a bestiary. DO NOT use fantasy or medieval terms like sorcerer, potion, etc. It should sound like a Pokemon description'
   }
 `
 

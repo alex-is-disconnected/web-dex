@@ -1,0 +1,299 @@
+:root {
+  --out-layer-color: #403c41;
+  --mid-layer-color: #675e6a;
+  --last-layer-color: rgb(222, 209, 191);
+}
+
+.out-layer,
+.out-layer--wrapper {
+  clip-path: polygon(0px calc(100% - 16px),
+    4px calc(100% - 16px),
+    4px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px 100%,
+    calc(100% - 16px) 100%,
+    calc(100% - 16px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 16px),
+    100% calc(100% - 16px),
+    100% 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 0px,
+    16px 0px,
+    16px 4px,
+    8px 4px,
+    8px 8px,
+    4px 8px,
+    4px 16px,
+    0px 16px);
+  position: relative;
+}
+.out-layer {
+  border: 4px solid transparent;
+}
+.out-layer--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+.out-layer--wrapper .out-layer {
+  display: block;
+  clip-path: polygon(4px 16px,
+    8px 16px,
+    8px 8px,
+    16px 8px,
+    16px 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) calc(100% - 16px),
+    calc(100% - 8px) calc(100% - 16px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 16px) calc(100% - 8px),
+    calc(100% - 16px) calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 16px),
+    4px calc(100% - 16px));
+}
+.out-layer::after,
+.out-layer--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 16px),
+    4px calc(100% - 16px),
+    4px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px 100%,
+    calc(100% - 16px) 100%,
+    calc(100% - 16px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 16px),
+    100% calc(100% - 16px),
+    100% 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 0px,
+    16px 0px,
+    16px 4px,
+    8px 4px,
+    8px 8px,
+    4px 8px,
+    4px 16px,
+    0px 16px,
+    0px 50%,
+    4px 50%,
+    4px 16px,
+    8px 16px,
+    8px 8px,
+    16px 8px,
+    16px 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) calc(100% - 16px),
+    calc(100% - 8px) calc(100% - 16px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 16px) calc(100% - 8px),
+    calc(100% - 16px) calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 16px),
+    4px calc(100% - 16px),
+    4px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--out-layer-color);
+  display: block;
+  pointer-events: none;
+}
+.out-layer::after {
+  margin: -4px;
+}
+
+.mid-layer,
+.mid-layer--wrapper {
+  clip-path: polygon(0px calc(100% - 8px),
+    4px calc(100% - 8px),
+    4px calc(100% - 4px),
+    8px calc(100% - 4px),
+    8px 100%,
+    calc(100% - 8px) 100%,
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 8px),
+    100% calc(100% - 8px),
+    100% 8px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 8px) 0px,
+    8px 0px,
+    8px 4px,
+    4px 4px,
+    4px 8px,
+    0px 8px);
+  position: relative;
+}
+.mid-layer {
+  border: 8px solid transparent;
+}
+.mid-layer--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+.mid-layer--wrapper .mid-layer {
+  display: block;
+  clip-path: polygon(8px 12px,
+    12px 12px,
+    12px 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 12px),
+    8px calc(100% - 12px));
+}
+.mid-layer::after,
+.mid-layer--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 8px),
+    4px calc(100% - 8px),
+    4px calc(100% - 4px),
+    8px calc(100% - 4px),
+    8px 100%,
+    calc(100% - 8px) 100%,
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 4px),
+    calc(100% - 4px) calc(100% - 8px),
+    100% calc(100% - 8px),
+    100% 8px,
+    calc(100% - 4px) 8px,
+    calc(100% - 4px) 4px,
+    calc(100% - 8px) 4px,
+    calc(100% - 8px) 0px,
+    8px 0px,
+    8px 4px,
+    4px 4px,
+    4px 8px,
+    0px 8px,
+    0px 50%,
+    8px 50%,
+    8px 12px,
+    12px 12px,
+    12px 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 12px),
+    calc(100% - 12px) calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--mid-layer-color);
+  display: block;
+  pointer-events: none;
+}
+.mid-layer::after {
+  margin: -8px;
+}
+
+.final-layer,
+.final-layer--wrapper {
+  clip-path: polygon(0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px);
+  position: relative;
+}
+.final-layer {
+  border: 4px solid transparent;
+}
+.final-layer--wrapper {
+  width: fit-content;
+  height: fit-content;
+}
+.final-layer--wrapper .final-layer {
+  display: block;
+  clip-path: polygon(4px 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) calc(100% - 4px),
+    4px calc(100% - 4px));
+}
+.final-layer::after,
+.final-layer--wrapper::after {
+  content: "";
+  position: absolute;
+  clip-path: polygon(0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px,
+    0px 50%,
+    4px 50%,
+    4px 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 50%,
+    0px 50%);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--last-layer-color);
+  display: block;
+  pointer-events: none;
+}
+.final-layer::after {
+  margin: -4px;
+}

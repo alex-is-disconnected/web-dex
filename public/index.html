@@ -3,13 +3,142 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Upload Image</title>
+    <title>WebDex</title>
+    <link rel="stylesheet" href="borders.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="spinner.css">
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
 </head>
 <body>
-    <input type="file" id="image-input" accept="image/*">
-    <button id="submit">Upload</button>
-    <div id="dex-list">
+    <div id="init-modal">
+      <div class="out-layer layer button-obj" style="height: fit-content;">
+        <div class="mid-layer layer">
+          <div id="upload" class="final-layer" style="width: 150px;">
+            <span id="upload-icon"><img src="assets/icons/upload.svg"/></span>
+            FILE UPLOAD
+          </div>
+        </div>
+      </div>
+
+      <div class="out-layer layer button-obj" style="height: fit-content;">
+        <div class="mid-layer layer">
+          <div id="photo" class="final-layer" style="width: 150px;">
+            <span id="photo-icon"><img src="assets/icons/photo.svg"/></span>
+            TAKE PHOTO
+          </div>
+        </div>
+      </div>
     </div>
+
+    <div id="chat-modal">
+      <div class="out-layer layer">
+        <div class="mid-layer layer">
+          <div id="chat" class="final-layer">Hello and welcome to WebDex! Here, you can send photos of all kinds of creatures you come across and get useful information. <br><br> How would you like to send a photo?</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="chat-modal-2">
+      <div class="out-layer layer">
+        <div class="mid-layer layer">
+          <div id="chat-2" class="final-layer">Hello and welcome to WebDex! Here, you can send photos of all kinds of creatures you come across and get useful information. <br><br> How would you like to send a photo?</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="upload-modal">
+      <div class="out-layer layer">
+        <div class="mid-layer layer">
+          <div id="upload-btn-area" class="final-layer">
+            <label id="upload-space" class="custom-file-upload"  accept="image/*">
+              <input id="image-input" type="file"/>
+              Upload an animal image 
+            </label>
+            <div id="loading">
+              Analyzing 
+              <div class="pokemon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="photo-modal">
+      <div class="out-layer layer">
+        <div class="mid-layer layer">
+          <div id="photo-area" class="final-layer">
+            <video id="video" width="640" height="480" autoplay disablePictureInPicture></video>
+            <button id="capture" class="custom-file-upload">Capture</button>
+            <div id="photo-loading">
+              Analyzing 
+              <div class="pokemon"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    
+    <div class="out-layer layer" style="display: none;">
+    <div class="mid-layer layer">
+      <button id="submit" class="final-layer" style="height: 75px; width: 150px;">Upload</button>
+    </div>
+    </div>
+    
+    <div id="dex-modal">
+      <div id="dex-list">
+        <div id="retry-outer" class="out-layer" onclick="resetPage()" >
+          <div class="mid-layer">
+            <div class="final-layer">
+              <section id="retry">
+                RETRY?
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <!-- <article class="dex-entry">
+          <div class="out-layer">
+            <div class="mid-layer">
+              <div class="final-layer">
+                <div class="dex-upper final-layer">
+                <div class="dex-image"><img src="assets/types/grass.png"></div>
+                <div class="dex-info">
+                  <h2 class="main-name">Orangutan</h2>
+                  <h2 class="sci-name">Pongo pygmaeus</h2>
+                  <section class="typing">
+                    <figure class="type GRASS"><img src="assets/types/grass.png"></figure>
+                    <figure class="type PSYCHIC"><img src="assets/types/psychic.png"></figure>
+                  </section>
+                  <section class="physical">
+                    <h2 class="height">HEIGHT: 4 to 5 ft</h2>
+                    <h2 class="weight">WEIGHT: 73 to 180 lbs</h2>
+                  </section>
+                  <section class="environment">
+                    <h2 class="region">REGION: Borneo and Sumatra</h2>
+                    <h2 class="habitat">HABITAT: Tropical rainforests</h2>
+                  </section>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="out-layer">
+            <div class="mid-layer">
+              <div class="dex-lower final-layer">
+                <section class="desc-container">
+                  <p class="description">With a wise gaze and a contemplative demeanor, the orangutan might just be the philosopher of the rainforest. With deep-set eyes and fur that flames in the sunlight like a forest fire, these creatures move with a gentle grace amid the treetops, pondering the mysteries of the jungle with every leisurely swing from one branch to another.</p>
+                </section>
+              </div>
+            </div>
+          </div>
+        </article> -->
+      </div>
+
+    </div>
+    <script src="interaction.js"></script>
     <script src="main.js"></script>
 </body>
 </html>
