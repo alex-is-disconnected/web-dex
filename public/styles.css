@@ -194,10 +194,12 @@ input[type="file"] {
   left: 0;
   background-color: var(--main-ui-bkg-color);
   width: 100vw;
+  min-height: calc(100vh - 20px);
   padding: 10px;
   z-index: 10;
   display: none;
   align-items: center;
+
 }
 
 #retry {
@@ -273,6 +275,9 @@ input[type="file"] {
 
 .dex-info {
   margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .dex-info > h2 {
