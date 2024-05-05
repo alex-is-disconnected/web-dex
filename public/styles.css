@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'PKMN';
-  src: url('assets/fonts/pokemon-bw.otf');
+  font-family: "PKMN";
+  src: url("assets/fonts/pokemon-bw.otf");
   font-weight: 100 700; /* Example range - adjust as necessary */
   font-style: normal;
 }
@@ -8,11 +8,11 @@
 :root {
   --main-ui-bkg-color: rgb(250, 245, 238);
   --ui-btn-hover: rgb(231, 223, 214);
-  --screen-edge-gap: 10px
+  --screen-edge-gap: 10px;
 }
 
 * {
-  font-family: 'PKMN', monospace !important;
+  font-family: "PKMN", monospace !important;
   font-size: 3vw;
   text-shadow: 2px 2px 0px rgb(170, 165, 165);
 }
@@ -22,16 +22,16 @@ body {
 }
 
 input {
-  font-family: 'PKMN', monospace !important;
+  font-family: "PKMN", monospace !important;
 }
 
 button {
-  font-family: 'PKMN', monospace !important;
+  font-family: "PKMN", monospace !important;
 }
 
 .layer {
   width: fit-content;
-  line-height: .9;
+  line-height: 0.9;
 }
 
 .button-obj {
@@ -43,7 +43,7 @@ button {
   background: var(--ui-btn-hover);
 }
 
-button { 
+button {
   cursor: pointer;
 }
 
@@ -80,7 +80,7 @@ input[type="file"] {
 #chat-modal {
   position: absolute;
   bottom: 40vh;
-  left: calc( 0 + var(--screen-edge-gap));
+  left: calc(0 + var(--screen-edge-gap));
   width: fit-content;
   height: fit-content;
   z-index: 10;
@@ -97,11 +97,11 @@ input[type="file"] {
 #chat-modal-2 {
   position: absolute;
   bottom: var(--screen-edge-gap);
-  left: calc( 0 + var(--screen-edge-gap));
+  left: calc(0 + var(--screen-edge-gap));
   width: fit-content;
   height: fit-content;
   z-index: 10;
-  transition: all .6s ease-in-out;
+  transition: all 0.6s ease-in-out;
   display: none;
 }
 
@@ -111,7 +111,6 @@ input[type="file"] {
   height: 20vh;
   width: calc(100vw - 32px - (var(--screen-edge-gap) * 4));
 }
-
 
 #upload-modal {
   position: absolute;
@@ -130,6 +129,7 @@ input[type="file"] {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: calc(100vw - (var(--screen-edge-gap) * 4));
 }
 
 #photo-modal {
@@ -156,6 +156,10 @@ input[type="file"] {
   padding: 10px;
 }
 
+#camera-controls {
+  display: flex;
+}
+
 #photo-loading {
   position: absolute;
   top: 50%;
@@ -166,12 +170,11 @@ input[type="file"] {
   border-radius: 5px;
   display: none;
   height: 100%;
-  width: 100%;
+  width: calc(100vw - (var(--screen-edge-gap) * 4));
   gap: 10px;
   align-items: center;
   justify-content: center;
 }
-
 
 #loading {
   position: absolute;
@@ -182,7 +185,8 @@ input[type="file"] {
   padding: 10px;
   border-radius: 5px;
   display: none;
-  width: 100%;
+  height: 100%;
+  width: calc(100vw - (var(--screen-edge-gap) * 4));
   gap: 10px;
   align-items: center;
   justify-content: center;
@@ -199,7 +203,6 @@ input[type="file"] {
   z-index: 10;
   display: none;
   align-items: center;
-
 }
 
 #retry {
@@ -241,10 +244,9 @@ input[type="file"] {
   letter-spacing: 1px;
 }
 
-
 .dex-upper {
   display: flex;
-  line-height: .8;
+  line-height: 0.8;
   margin: 20px;
 }
 
@@ -272,7 +274,6 @@ input[type="file"] {
   max-height: 100%;
 }
 
-
 .dex-info {
   margin: 10px;
   display: flex;
@@ -282,7 +283,7 @@ input[type="file"] {
 
 .dex-info > h2 {
   margin: 0;
-  padding: .25em 0;
+  padding: 0.25em 0;
 }
 
 .typing {
@@ -303,15 +304,60 @@ input[type="file"] {
 
 .physical > h2 {
   margin: 0;
-  padding: .25em 0;
+  padding: 0.25em 0;
 }
 
 .environment > h2 {
-    margin: 0;
-    padding: .25em 0;
+  margin: 0;
+  padding: 0.25em 0;
 }
 
 .dex-image {
   width: calc(50% - 20px);
 }
 
+@media (max-width: 800px) {
+  * {
+    font-size: 10vw;
+  }
+
+  #chat {
+    height: fit-content;
+  }
+
+  #chat-2 {
+    height: fit-content;
+  }
+
+  #photo-area {
+    max-width: calc(100vw - 32px - (var(--screen-edge-gap) * 4));
+    overflow: hidden;
+  }
+
+  #dex-list {
+    flex-direction: column;
+    width: calc(100vw - (var(--screen-edge-gap) * 4));
+  }
+
+  .dex-upper {
+    margin: 0;
+    flex-direction: column;
+  }
+
+  .dex-image {
+    width: 100%;
+    margin: 0;
+  }
+
+  .dex-image > figure {
+    margin: 10px;
+  }
+
+  .typing {
+    padding: 10px;
+  }
+
+  .type > img {
+    height: 10vw;
+  }
+}

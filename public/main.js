@@ -1,22 +1,21 @@
-const submit = document.getElementById('submit');
-const fileInput = document.getElementById('image-input');
-const loading = document.getElementById('loading');
-const photoLoading = document.getElementById('photo-loading');
-const video = document.getElementById('video');
+const submit = document.getElementById("submit");
+const fileInput = document.getElementById("image-input");
+const loading = document.getElementById("loading");
+const photoLoading = document.getElementById("photo-loading");
+const video = document.getElementById("video");
 
-const canvas = document.createElement('canvas');
+const canvas = document.createElement("canvas");
 
-document.getElementById('capture').addEventListener('click', cameraSubmit)
+document.getElementById("capture").addEventListener("click", cameraSubmit);
 
 function cameraSubmit() {
-  photoLoading.style.display = 'flex'
-  const context = canvas.getContext('2d');
+  photoLoading.style.display = "flex";
+  const context = canvas.getContext("2d");
   canvas.width = 640;
-  canvas.height = 480; 
-  context.drawImage(video, 0, 0, canvas.width, canvas.height)
+  canvas.height = 480;
+  context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
-
-  const base64Image = canvas.toDataURL('image/jpeg');
+  const base64Image = canvas.toDataURL("image/jpeg");
 
   sendToAPI(base64Image);
   stopVideoStream(video);
@@ -26,8 +25,8 @@ function stopVideoStream(videoElement) {
   const stream = videoElement.srcObject;
   const tracks = stream.getTracks();
 
-  tracks.forEach(function(track) {
-      track.stop();
+  tracks.forEach(function (track) {
+    track.stop();
   });
 
   videoElement.srcObject = null;
@@ -35,48 +34,47 @@ function stopVideoStream(videoElement) {
 
 function uploadImage() {
   const file = fileInput.files[0];
-  loading.style.display = 'flex';
+  loading.style.display = "flex";
   if (file) {
-      const reader = new FileReader();
+    const reader = new FileReader();
 
-      reader.onload = function (e) {
-        const base64String = e.target.result;
-        sendToAPI(base64String)
-      };
+    reader.onload = function (e) {
+      const base64String = e.target.result;
+      sendToAPI(base64String);
+    };
 
-      reader.readAsDataURL(file);
+    reader.readAsDataURL(file);
   } else {
-      console.log("No file selected");
+    console.log("No file selected");
   }
 }
 
-function sendToAPI (base64String) {
-  console.log('uploading')
-  fetch('/upload', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image: base64String })
+function sendToAPI(base64String) {
+  console.log("uploading");
+  fetch("/upload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ image: base64String }),
   })
-  .then(response => response.json())
-  .then(data => {
-      console.log('Success:', data);
-      renderDexEntry(data, base64String)
-  })
-  .catch((error) => {
-      console.error('Error:', error);
-  });
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+      renderDexEntry(data, base64String);
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
-
-submit.addEventListener('click', uploadImage);
-fileInput.addEventListener('change', uploadImage)
-function renderDexEntry (data, userImage) {
-    const dexList = document.getElementById('dex-list')
-    const dexEntry = document.createElement('article');
-    const dexModal = document.getElementById('dex-modal')
-    dexList.appendChild(dexEntry);
-    dexEntry.classList.add('dex-entry');
-    if (data.success === true) {
+submit.addEventListener("click", uploadImage);
+fileInput.addEventListener("change", uploadImage);
+function renderDexEntry(data, userImage) {
+  const dexList = document.getElementById("dex-list");
+  const dexEntry = document.createElement("article");
+  const dexModal = document.getElementById("dex-modal");
+  dexList.appendChild(dexEntry);
+  dexEntry.classList.add("dex-entry");
+  if (data.success === true) {
     dexEntry.innerHTML = `
     <div class="out-layer">
             <div class="mid-layer">
@@ -103,7 +101,6 @@ function renderDexEntry (data, userImage) {
               </div>
             </div>
           </div>
-
           <div class="out-layer">
             <div class="mid-layer">
               <div class="dex-lower final-layer">
@@ -113,9 +110,9 @@ function renderDexEntry (data, userImage) {
               </div>
             </div>
           </div>
-    `
-    } else {
-      dexEntry.innerHTML = `
+    `;
+  } else {
+    dexEntry.innerHTML = `
       <div class="out-layer">
         <div class="mid-layer">
           <div class="final-layer">
@@ -125,7 +122,7 @@ function renderDexEntry (data, userImage) {
             </div>
           </div>
         </div>
-      </div>`
-    }
-    dexModal.style.display = 'flex';
+      </div>`;
+  }
+  dexModal.style.display = "flex";
 }

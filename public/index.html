@@ -1,29 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>WebDex</title>
-    <link rel="stylesheet" href="borders.css">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="spinner.css">
+    <link rel="stylesheet" href="borders.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="spinner.css" />
     <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div id="init-modal">
-      <div class="out-layer layer button-obj" style="height: fit-content;">
+      <div class="out-layer layer button-obj" style="height: fit-content">
         <div class="mid-layer layer">
-          <div id="upload" class="final-layer" style="width: 150px;">
-            <span id="upload-icon"><img src="assets/icons/upload.svg"/></span>
+          <div id="upload" class="final-layer" style="width: 150px">
+            <span id="upload-icon"><img src="assets/icons/upload.svg" /></span>
             FILE UPLOAD
           </div>
         </div>
       </div>
 
-      <div class="out-layer layer button-obj" style="height: fit-content;">
+      <div class="out-layer layer button-obj" style="height: fit-content">
         <div class="mid-layer layer">
-          <div id="photo" class="final-layer" style="width: 150px;">
-            <span id="photo-icon"><img src="assets/icons/photo.svg"/></span>
+          <div id="photo" class="final-layer" style="width: 150px">
+            <span id="photo-icon"><img src="assets/icons/photo.svg" /></span>
             TAKE PHOTO
           </div>
         </div>
@@ -33,7 +33,12 @@
     <div id="chat-modal">
       <div class="out-layer layer">
         <div class="mid-layer layer">
-          <div id="chat" class="final-layer">Hello and welcome to WebDex! Here, you can send photos of all kinds of creatures you come across and get useful information. <br><br> How would you like to send a photo?</div>
+          <div id="chat" class="final-layer">
+            Hello and welcome to WebDex! Here, you can send photos of all kinds
+            of creatures you come across and get useful information.
+            <br /><br />
+            How would you like to send a photo?
+          </div>
         </div>
       </div>
     </div>
@@ -41,7 +46,12 @@
     <div id="chat-modal-2">
       <div class="out-layer layer">
         <div class="mid-layer layer">
-          <div id="chat-2" class="final-layer">Hello and welcome to WebDex! Here, you can send photos of all kinds of creatures you come across and get useful information. <br><br> How would you like to send a photo?</div>
+          <div id="chat-2" class="final-layer">
+            Hello and welcome to WebDex! Here, you can send photos of all kinds
+            of creatures you come across and get useful information.
+            <br /><br />
+            How would you like to send a photo?
+          </div>
         </div>
       </div>
     </div>
@@ -50,12 +60,16 @@
       <div class="out-layer layer">
         <div class="mid-layer layer">
           <div id="upload-btn-area" class="final-layer">
-            <label id="upload-space" class="custom-file-upload"  accept="image/*">
-              <input id="image-input" type="file"/>
-              Upload an animal image 
+            <label
+              id="upload-space"
+              class="custom-file-upload"
+              accept="image/*"
+            >
+              <input id="image-input" type="file" />
+              Upload an animal image
             </label>
             <div id="loading">
-              Analyzing 
+              Analyzing
               <div class="pokemon"></div>
             </div>
           </div>
@@ -67,10 +81,19 @@
       <div class="out-layer layer">
         <div class="mid-layer layer">
           <div id="photo-area" class="final-layer">
-            <video id="video" width="640" height="480" autoplay disablePictureInPicture></video>
-            <button id="capture" class="custom-file-upload">Capture</button>
+            <video
+              id="video"
+              width="640"
+              height="480"
+              autoplay
+              disablePictureInPicture
+            ></video>
+            <div id="camera-controls">
+              <button id="camera-switch" class="custom-file-upload">⭯</button>
+              <button id="capture" class="custom-file-upload">Capture</button>
+            </div>
             <div id="photo-loading">
-              Analyzing 
+              Analyzing
               <div class="pokemon"></div>
             </div>
           </div>
@@ -78,22 +101,24 @@
       </div>
     </div>
 
-    
-    
-    <div class="out-layer layer" style="display: none;">
-    <div class="mid-layer layer">
-      <button id="submit" class="final-layer" style="height: 75px; width: 150px;">Upload</button>
+    <div class="out-layer layer" style="display: none">
+      <div class="mid-layer layer">
+        <button
+          id="submit"
+          class="final-layer"
+          style="height: 75px; width: 150px"
+        >
+          Upload
+        </button>
+      </div>
     </div>
-    </div>
-    
+
     <div id="dex-modal">
       <div id="dex-list">
-        <div id="retry-outer" class="out-layer" onclick="resetPage()" >
+        <div id="retry-outer" class="out-layer" onclick="_resetPage()">
           <div class="mid-layer">
             <div class="final-layer">
-              <section id="retry">
-                RETRY?
-              </section>
+              <section id="retry">RETRY?</section>
             </div>
           </div>
         </div>
@@ -136,9 +161,8 @@
           </div>
         </article> -->
       </div>
-
     </div>
     <script src="interaction.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>
