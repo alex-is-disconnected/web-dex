@@ -20,28 +20,28 @@ const system_prompt = `
     region: 'region(s) of the world where animal is found',
     typing: [
       'the first type of the animal. This is similar to Pokemon typing where you will give ONLY two types based on the animal's physical, environmental, and behavioral characteristics',
-      'should ONLY be single entries from the list: FIRE, WATER, GRASS, FIGHTING, FLYING, POISON, GHOST, STEEL, ELECTRIC, PSYCHIC, GROUND, ROCK, BUG, ICE, DRAGON, DARK, FAIRY'
+      'should ONLY be single entries from the list: FIRE, WATER, GRASS, FIGHTING, FLYING, POISON, GHOST, STEEL, ELECTRIC, PSYCHIC, GROUND, ROCK, BUG, ICE, DRAGON, DARK, FAIRY. DO NOT INCLUDE ANY TYPES OTHER THAN THE ONES PREVIOUSLY MENTIONED!!!'
     ],
     description: 'a fun, creative, and short description of the animal that is factual but makes it sound like the entry of a fictional beast in a bestiary. DO NOT use fantasy or medieval terms like sorcerer, potion, etc. It should sound like a Pokemon description'
   }
-`
+`;
 
 const openai = new OpenAI({ apiKey: getOpenAIKey() });
-export async function getDexInfo (context) {
+export async function getDexInfo(context) {
   try {
     const body = await context.request.body().value;
     const base64Image = body.image;
 
     const result = await openai.chat.completions.create({
       model: "gpt-4-turbo",
-      response_format: { "type": "json_object" },
+      response_format: { type: "json_object" },
       messages: [
         {
           role: "system",
           content: [
-            { 
-              type: "text", 
-              text: system_prompt 
+            {
+              type: "text",
+              text: system_prompt,
             },
           ],
         },
@@ -51,7 +51,7 @@ export async function getDexInfo (context) {
             {
               type: "image_url",
               image_url: {
-                "url": base64Image
+                url: base64Image,
               },
             },
           ],

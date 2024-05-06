@@ -149,15 +149,21 @@ input[type="file"] {
 
 #photo-area {
   display: flex;
+  height: 70vh;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 10px;
   padding: 10px;
+  position: relative;
 }
 
 #camera-controls {
   display: flex;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 #photo-loading {
@@ -197,7 +203,7 @@ input[type="file"] {
   top: 0;
   left: 0;
   background-color: var(--main-ui-bkg-color);
-  width: 100vw;
+  width: calc(100vw - (var(--screen-edge-gap) * 2));
   min-height: calc(100vh - 20px);
   padding: 10px;
   z-index: 10;
@@ -236,7 +242,7 @@ input[type="file"] {
 }
 
 .dex-entry {
-  width: 85vw;
+  width: 100%;
   height: fit-content;
   display: flex;
   flex-direction: column;
@@ -336,7 +342,7 @@ input[type="file"] {
 
   #dex-list {
     flex-direction: column;
-    width: calc(100vw - (var(--screen-edge-gap) * 4));
+    width: calc(100vw - (var(--screen-edge-gap) * 2));
   }
 
   .dex-upper {
